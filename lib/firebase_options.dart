@@ -56,29 +56,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'YOUR_WEB_API_KEY',
-    appId: 'YOUR_WEB_APP_ID',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
+    apiKey: 'AIzaSyBCMqj54mdimtuHxuTFoIOLztLgu5DEi5U',
+    appId: '1:545507620196:web:46a771647435bc9dadb671',
+    messagingSenderId: '545507620196',
+    projectId: 'democommunity-57174',
+    authDomain: 'democommunity-57174.firebaseapp.com',
+    storageBucket: 'democommunity-57174.firebasestorage.app',
+    measurementId: 'G-9LCQW746GR',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'YOUR_ANDROID_API_KEY',
-    appId: 'YOUR_ANDROID_APP_ID',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
+    apiKey: 'AIzaSyAn1YqpwDTXPmP1M0naHvoBqxXra_z_uM0',
+    appId: '1:545507620196:android:7221d4c1827f9154adb671',
+    messagingSenderId: '545507620196',
+    projectId: 'democommunity-57174',
+    storageBucket: 'democommunity-57174.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'YOUR_IOS_API_KEY',
-    appId: 'YOUR_IOS_APP_ID',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    iosBundleId: 'YOUR_IOS_BUNDLE_ID',
+    apiKey: 'AIzaSyDLAkQ-SmJhmbSE8C3QPiu_BWhMusi4U0o',
+    appId: '1:545507620196:ios:77ef75ab59e5679fadb671',
+    messagingSenderId: '545507620196',
+    projectId: 'democommunity-57174',
+    storageBucket: 'democommunity-57174.firebasestorage.app',
+    iosBundleId: 'com.example.blueberryTemplate',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

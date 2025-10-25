@@ -8,13 +8,17 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      colorScheme: const ColorScheme.light(
-        primary: Color(0xFF2196F3),
-        surface: Color(0xFFF5F5F5),
+      colorScheme: ColorScheme.light(
+        primary: AppColors.light.primary,
+        secondary: AppColors.light.secondary,
+        surface: AppColors.light.surface,
+        background: AppColors.light.background,
+        error: AppColors.light.error,
       ),
       extensions: const <ThemeExtension<dynamic>>[
         AppColors.light,
       ],
+      scaffoldBackgroundColor: AppColors.light.background,
     );
   }
 
@@ -23,14 +27,17 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      colorScheme: const ColorScheme.dark(
-        primary: Color(0xFF64B5F6),
-        secondary: Color(0xFF26C6DA),
-        surface: Color(0xFF1E1E1E),
+      colorScheme: ColorScheme.dark(
+        primary: AppColors.dark.primary,
+        secondary: AppColors.dark.secondary,
+        surface: AppColors.dark.surface,
+        background: AppColors.dark.background,
+        error: AppColors.dark.error,
       ),
       extensions: const <ThemeExtension<dynamic>>[
         AppColors.dark,
       ],
+      scaffoldBackgroundColor: AppColors.dark.background,
     );
   }
 }
