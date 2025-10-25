@@ -41,4 +41,22 @@ class PostController extends AsyncNotifier<List<Post>> {
       return _loadPosts();
     });
   }
+
+  Future<void> updatePost(String postId, String newContent) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      await _firestore.collection('posts').doc(postId).update({
+        'content': newContent,
+      });
+      return _loadPosts();
+    });
+  }
+
+  Future<void> deletePost(String postId) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      await _firestore.collection('posts').doc(postId).delete();
+      return _loadPosts();
+    });
+  }
 }
