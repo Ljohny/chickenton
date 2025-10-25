@@ -26,7 +26,19 @@ class PostController extends AsyncNotifier<List<Post>> {
     return posts;
   }
 
-  // In the future, you can add methods to add, update, or delete posts.
-  // Example:
-  // Future<void> addPost(Post post) async { ... }
+  Future<void> addPost(String content) async {
+    // 로딩 상태로 변경
+    state = const AsyncValue.loading();
+
+    // 상태를 직접 업데이트하여 사용자 경험 개선
+    state = await AsyncValue.guard(() async {
+      // Firestore에 데이터 추가
+      await _firestore.collection('posts').add({
+        'content': content,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+      // 데이터 추가 후 목록 다시 로드
+      return _loadPosts();
+    });
+  }
 }

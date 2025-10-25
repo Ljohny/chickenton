@@ -1,19 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:template/features/snap_note/controllers/post_controller.dart';
 
-class CreatePostScreen extends StatefulWidget {
+class CreatePostScreen extends ConsumerStatefulWidget {
   const CreatePostScreen({super.key});
 
   @override
-  State<CreatePostScreen> createState() => _CreatePostScreenState();
+  ConsumerState<CreatePostScreen> createState() => _CreatePostScreenState();
 }
 
-class _CreatePostScreenState extends State<CreatePostScreen> {
+class _CreatePostScreenState extends ConsumerState<CreatePostScreen> {
   final TextEditingController _textController = TextEditingController();
 
   @override
   void dispose() {
     _textController.dispose();
     super.dispose();
+  }
+
+  Future<void> _submitPost() async {
+    if (_textController.text.isNotEmpty) {
+      // PostController의 addPost 메서드 호출
+      await ref
+          .read(postControllerProvider.notifier)
+          .addPost(_textController.text);
+
+      // 성공 메시지 표시
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('게시글이 성공적으로 등록되었습니다.')),
+        );
+        Navigator.of(context).pop();
+      }
+    }
   }
 
   @override
@@ -46,16 +65,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           child: ElevatedButton(
-            onPressed: () {
-              // TODO: 게시 기능 구현
-              if (_textController.text.isNotEmpty) {
-                // 기능 구현 후 Navigator.pop(context); 호출
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('게시글이 성공적으로 등록되었습니다.')),
-                );
-                Navigator.pop(context);
-              }
-            },
+            onPressed: _submitPost,
             child: const Text('게시'),
           ),
         ),

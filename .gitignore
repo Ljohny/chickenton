@@ -65,6 +65,9 @@ coverage/
 *.lcov
 .test_coverage.dart
 
+# Log files
+*.log
+
 # env file
 .env
 
